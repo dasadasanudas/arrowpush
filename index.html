@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ArrowPush · reaction mechanisms from a link</title>
+<meta name="description" content="Draw organic reaction mechanisms with curly arrows from a text link. Built so text-only AIs can show you mechanisms.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23111'/%3E%3Cpath d='M7 22 C7 8 24 6 24 18' fill='none' stroke='%23ff5a4e' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M19 15 L24 21 L28 14 z' fill='%23ff5a4e'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="./" title="ArrowPush">
+    <svg viewBox="0 0 32 32" width="26" height="26"><rect width="32" height="32" rx="8" fill="#111"/><path d="M7 22 C7 8 24 6 24 18" fill="none" stroke="#ff5a4e" stroke-width="3" stroke-linecap="round"/><path d="M19 15 L24 21 L28 14 z" fill="#ff5a4e"/></svg>
+    <b>ArrowPush</b>
+  </a>
+  <div class="actions">
+    <select id="examples" aria-label="Examples"><option value="">Examples</option></select>
+    <button id="btnEdit">Edit</button>
+    <button id="btnLink" title="Copy a short link to this mechanism">Copy link</button>
+    <button id="btnPrompt" class="accent" title="Instructions to paste into another AI">AI prompt</button>
+  </div>
+</header>
+<main id="wrap">
+  <aside id="editor" hidden>
+    <div class="ed-head"><span>Script</span><span id="status"></span></div>
+    <textarea id="src" spellcheck="false" placeholder="Paste a script or an ArrowPush link here"></textarea>
+    <div id="warnings"></div>
+    <div class="ed-foot">
+      <label><input type="checkbox" id="chkMaps"> atom numbers</label>
+      <button id="btnPlain" title="Copy a link whose script is readable text">Copy readable link</button>
+    </div>
+  </aside>
+  <section id="view"></section>
+</main>
+<div id="toast"></div>
+<dialog id="promptDlg">
+  <div class="dlg-head"><b>Paste this into your AI</b><span>It teaches the AI to answer with ArrowPush links.</span></div>
+  <textarea id="promptText" readonly></textarea>
+  <div class="dlg-foot"><button id="closePrompt">Close</button><button id="copyPrompt" class="accent">Copy</button></div>
+</dialog>
+<script src="js/chem.js"></script>
+<script src="js/script.js"></script>
+<script src="js/render.js"></script>
+<script src="js/examples.js"></script>
+<script src="js/prompt.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
